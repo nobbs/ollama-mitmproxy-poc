@@ -7,7 +7,7 @@ This is a quick proof of concept to run Ollama in a docker container and use mit
 1. Start the containers
 
 ```bash
-$ docker compose up -d
+docker compose up -d
 ```
 
 2. Open the mitmproxy web interface, <http://localhost:8081>, the password is **`root`**.
@@ -15,7 +15,7 @@ $ docker compose up -d
 3. Load some model into Ollama, for example:
 
 ```bash
-$ docker compose exec ollama ollama run tinyllama
+docker compose exec ollama ollama run tinyllama
 ```
 
 4. Watch the model being loaded via the mitmproxy web interface.
@@ -25,5 +25,5 @@ $ docker compose exec ollama ollama run tinyllama
 6. Tear everything down
 
 ```bash
-$ docker compose down
+docker compose down
 ```

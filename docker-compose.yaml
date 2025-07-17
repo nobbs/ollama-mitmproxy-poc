@@ -1,0 +1,24 @@
+services:
+  mitmproxy:
+    image: mitmproxy/mitmproxy
+    ports:
+      - "8080:8080"
+      - "127.0.0.1:8081:8081"
+    volumes:
+      - ./certificates:/home/mitmproxy/.mitmproxy
+    command:
+      - mitmweb
+      - -vv
+      - --web-host
+      - 0.0.0.0
+      - --set
+      - web_password=root
+
+  ollama:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "11434:11434"
+    environment:
+      - HTTPS_PROXY=http://mitmproxy:8080
